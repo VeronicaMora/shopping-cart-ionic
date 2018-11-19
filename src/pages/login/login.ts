@@ -3,7 +3,6 @@ import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { TabsPage } from '../tabs/tabs';
 import { PetitionsProvider } from '../../providers/petitions/petitions'
-import { HomePage } from '../home/home'
 
 @IonicPage()
 @Component({
@@ -22,7 +21,6 @@ export class LoginPage {
     if(this.username != '' && this.password != ''){
       this.petitions.login(this.username, this.password).subscribe((data:any) => {
         localStorage.setItem("token", data.token);
-        this.navCtrl.setRoot(HomePage); 
         this.navCtrl.setRoot(TabsPage); 
       }, (error) => {
         console.log(error)

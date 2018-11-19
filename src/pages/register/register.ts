@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
-import { HomePage } from '../home/home';
-import { LoginPage } from '../login/login';
 import { TabsPage } from '../tabs/tabs';
 import { PetitionsProvider } from '../../providers/petitions/petitions'
 
@@ -22,7 +20,7 @@ export class RegisterPage {
     if(this.username != '' && this.password != ''){
       this.petitions.signup(this.username, this.password).subscribe((data: any) => {
         localStorage.setItem("token", data.token);
-        this.navCtrl.push(HomePage);
+        this.navCtrl.setRoot(TabsPage);
       }, (error) => {
         console.log(error)
         this.presentToast('El nombre de usuario ya existe, por favor intenta con otro');
@@ -31,11 +29,6 @@ export class RegisterPage {
     else{
       this.presentToast('Campos vacios');
     }
-    this.navCtrl.setRoot(TabsPage);
-  }
-
-  goHome(){
-    this.navCtrl.push(LoginPage);
   }
 
   presentToast(msg) {

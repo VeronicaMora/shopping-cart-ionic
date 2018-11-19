@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title><h2>Moga-Cart</h2></ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <h2>producto 1</h2>
+  </ion-card>
+
+  <ion-fab right bottom>
+    <button ion-fab mini (click)="deleteProduct()"><ion-icon name="md-trash"></ion-icon></button>
+  </ion-fab>
+
+  <ion-fab left bottom>
+    <button ion-fab mini (click)="updateProduct()"><ion-icon name="md-create"></ion-icon></button>
+  </ion-fab>
+</ion-content>

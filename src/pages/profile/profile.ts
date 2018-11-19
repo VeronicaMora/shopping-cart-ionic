@@ -21,15 +21,15 @@ export class ProfilePage {
   }
 
   goOptions(){
-    this.navCtrl.setRoot(OptionsPage);
+    this.navCtrl.push(OptionsPage);
   }
 
   createProduct(){
-    this.navCtrl.setRoot(CreatePage);
+    this.navCtrl.push(CreatePage);
   }
 
   myProduct(){
-    this.navCtrl.setRoot(MyProductPage)
+    this.navCtrl.push(MyProductPage)
   }
 
 }

@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title><h2>Moga-Cart</h2></ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-avatar item-start>
+      <img src="../assets/imgs/yo.jpg">
+    </ion-avatar>
+    <h2>marigalvis6</h2>
+  </ion-item>
+    
+  <p>info</p>
+
+  <ion-item>
+    <ion-input type="text" placeholder="Buscar..." [(ngModel)]="input"></ion-input>
+  </ion-item>
+
+  <ion-list>
+    <ion-card (click)="goToProduct()">
+      <h2>producto 1</h2>
+    </ion-card>
+  </ion-list>
+</ion-content>

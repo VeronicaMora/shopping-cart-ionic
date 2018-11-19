@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar style="text-align: center">
+    <ion-title><h2>Productos</h2></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-input type="text" placeholder="Buscar..." [(ngModel)]="input"></ion-input>
+  </ion-item>
+  <ion-list>
+    <!--<ion-card *ngFor="let item of getItems()">-->
+    <ion-card (click)="goToProduct()">
+      <ion-item>
+        <div text-center>
+          <img src="../assets/imgs/luces.png">
+        </div>
+        <div text-wrap margin-top>
+          <h2>nombre</h2>
+          <h6>descripcion</h6>
+          <h4>precio</h4>
+        </div>
+        <button ion-button full small icon-only (click)="addToCart()">
+          <ion-icon name="md-cart"></ion-icon>
+        </button>
+      </ion-item>
+    </ion-card>
+  </ion-list>
+</ion-content>

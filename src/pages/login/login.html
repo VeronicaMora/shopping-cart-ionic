@@ -1,27 +1,29 @@
 <ion-header>
-  <ion-title><h2 class="letra">Moga-Cart</h2></ion-title>
+  <ion-navbar style="text-align: center">
+    <ion-title><h2>Moga-Cart</h2></ion-title>
+  </ion-navbar>
 </ion-header>
 
-<ion-content padding class="foto">
-<ion-card>
-  <ion-card-header>
-    <h2>Inicio de sesión</h2>
-  </ion-card-header>
-  <ion-card-content>
-  <form (submit)="doLogin()">
-  <ion-item>
-    <ion-label stacked>Usuario</ion-label>
-    <ion-input name="username" type="text" placeholder="Usuario" [(ngModel)]="username"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label stacked>Contraseña</ion-label>
-    <ion-input name="password" type="password" placeholder="Contraseña" [(ngModel)]="password"></ion-input>
-  </ion-item>
-  <ion-buttons end>
-    <button ion-button round type="submit">Iniciar sesión</button>
-  </ion-buttons>
-  </form>
-  <button ion-button block clear (click)="register()">¿No tienes una cuenta? ¡Registrate!</button>
-  </ion-card-content>  
-</ion-card>
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <h2>Inicio de sesión</h2>
+    </ion-card-header>
+    <ion-card-content>
+    <form (submit)="doLogin()">
+    <ion-item>
+      <ion-label stacked>Usuario</ion-label>
+      <ion-input name="username" type="text" placeholder="Usuario" [(ngModel)]="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Contraseña</ion-label>
+      <ion-input name="password" type="password" placeholder="Contraseña" [(ngModel)]="password"></ion-input>
+    </ion-item>
+    <ion-buttons end>
+      <button ion-button round type="submit">Iniciar sesión</button>
+    </ion-buttons>
+    </form>
+    <button ion-button block clear (click)="register()">¿No tienes una cuenta? ¡Registrate!</button>
+    </ion-card-content>  
+  </ion-card>
 </ion-content>

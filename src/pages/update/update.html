@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title><h2>Moga-Cart</h2></ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="foto">
+  <ion-item>
+    <ion-avatar item-start>
+      <img src="../assets/imgs/yo.jpg">
+    </ion-avatar>
+    <h2>marigalvis6</h2>
+
+  </ion-item>
+    
+  <ion-textarea fz-elastic placeholder="Escribe algo..." [(ngModel)]="content"></ion-textarea>
+  <ion-fab right bottom>
+    <button ion-fab mini (click)="saveUpdate()"><ion-icon name="md-checkmark"></ion-icon></button>
+  </ion-fab>
+</ion-content>
