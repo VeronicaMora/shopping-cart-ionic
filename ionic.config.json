@@ -1,0 +1,7 @@
+{
+  "name": "shoppingCart-ionic",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

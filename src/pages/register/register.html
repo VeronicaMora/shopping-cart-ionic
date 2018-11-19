@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-row>
+    <ion-col col-1>
+      <ion-fab left top>
+        <button ion-fab mini (click)="goHome()"><ion-icon name="md-arrow-back"></ion-icon></button>
+      </ion-fab>
+    </ion-col>
+    <ion-col col-11>
+      <ion-title><h2 class="letra">Moga-Cart</h2></ion-title>
+    </ion-col>
+  </ion-row>
+</ion-header>
+
+<ion-content padding class="foto">
+  <ion-card>
+    <ion-card-header>
+      <h2>Registro</h2>
+    </ion-card-header>
+    <ion-card-content>
+    <form (submit)="doSignup()">
+      <ion-item>
+        <ion-label stacked>Usuario</ion-label>
+        <ion-input name="username" type="text" placeholder="Usuario" [(ngModel)]="username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Contraseña</ion-label>
+        <ion-input name="password" type="password" placeholder="Contraseña" [(ngModel)]="password"></ion-input>
+      </ion-item>
+      <ion-buttons end>
+        <button ion-button round type="submit">Registrarme</button>
+      </ion-buttons>
+    </form>
+    </ion-card-content>  
+  </ion-card>
+</ion-content>
+   
