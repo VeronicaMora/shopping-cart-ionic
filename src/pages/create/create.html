@@ -6,20 +6,21 @@
 
 <ion-content padding>
   <ion-card>
-    <ion-item>
-      <div text-center>
-        <img src="../assets/imgs/luces.png">
-      </div>
-      <div text-wrap margin-top>
-        <h2>nombre</h2>
-        <h6>descripcion</h6>
-        <h4>precio</h4>
-        <h4>cantidad</h4>
-      </div>
-    </ion-item>
+    <ion-card-header>
+      <ion-item>
+        <ion-input type="text" placeholder="Nombre" [(ngModel)]="name"></ion-input>
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-textarea fz-elastic placeholder="Descripcion del producto" [(ngModel)]="des_product"></ion-textarea>
+      <ion-input type="text" placeholder="Precio" [(ngModel)]="price"></ion-input>
+      <ion-input type="text" placeholder="Disponibilidad" [(ngModel)]="available"></ion-input>
+      <ion-input type="text" placeholder="Imagen" [(ngModel)]="image"></ion-input>
+    </ion-card-content>  
   </ion-card>
 
   <ion-buttons end>
-    <button ion-button small color="primary" (click)="release()">Publicar producto</button>
+    <button ion-button small color="primary" (click)="createProduct()">Publicar producto</button>
   </ion-buttons>
 </ion-content>
+

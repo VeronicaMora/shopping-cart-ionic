@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { OptionsPage } from '../options/options';
 import { CreatePage } from '../create/create';
 import { MyProductPage } from '../my-product/my-product';
+import { PetitionsProvider } from '../../providers/petitions/petitions'
 
 
 @IonicPage()
@@ -12,12 +13,19 @@ import { MyProductPage } from '../my-product/my-product';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private navCtrl: NavController, private petitions: PetitionsProvider) {
   }
 
+  private products: any = []
   private input: string = ''
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
+    this.petitions.getMyProducts().subscribe((data) => {
+      console.log(data)
+      this.products = data
+    }, (error) => {
+      console.log(error)
+    })
   }
 
   goOptions(){

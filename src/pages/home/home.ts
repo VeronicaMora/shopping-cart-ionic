@@ -14,21 +14,21 @@ export class HomePage {
   constructor(private navCtrl: NavController,
     private petitions: PetitionsProvider,
     public alertCtrl: AlertController) {
-    this.initializeItems();
+      
+      this.ionViewDidEnter();
   }
 
-  private notes: any = [];
+  private products: any = []
   private input: string = ''
-  private items: any = []
+  //private items: any = []
 
-  initializeItems() {
-    /*this.petitions.getNotes().subscribe((data: any) => {
+  ionViewDidEnter() {
+    this.petitions.getProducts().subscribe((data: any) => {
       console.log(data)
-      this.notes = data
+      this.products = data
     }, (error) => {
-        console.log({ error })
-      })
-      */
+      console.log(error)
+    })
   }
 
   logout(){
@@ -39,11 +39,11 @@ export class HomePage {
 
   getItems() {
     /*if (this.input.trim() != '') {
-      return this.notes.filter((item) => {
+      return this.products.filter((item) => {
         return (item.title.toLowerCase().indexOf(this.input.toLowerCase()) > -1);
       })
     }
-    return this.notes
+    return this.products
     */
   }
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
+import { PetitionsProvider } from '../../providers/petitions/petitions';
 
 
 @IonicPage()
@@ -10,14 +11,42 @@ import { ProfilePage } from '../profile/profile';
 })
 export class CreatePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private navCtrl: NavController, private petitions: PetitionsProvider, private toastCtrl: ToastController) {
   }
 
-  ionViewDidLoad() {
+  private name: string = ""
+  private des_product: string = ""
+  private price: string = ""
+  private available: string = ""
+  private image: string = ""
+
+  createProduct(){
+    //if(this.name != '' && this.des_product != '' && this.price != '' && this.available != '' && this.image != ''){
+      this.petitions.createproduct(this.name, this.des_product, this.price, this.available, this.image).subscribe((data) => {
+        console.log(data)
+      }, (error) => {
+        console.log(error)
+      })
+      this.navCtrl.setRoot(ProfilePage)
+    /*}
+    else{
+      this.presentToast('Aun no escribes nada');
+    }*/
   }
 
-  release(){
-    this.navCtrl.setRoot(ProfilePage)
+  presentToast(msg) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 3000,
+      position: 'middle',
+      dismissOnPageChange: true
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
   }
 
 }

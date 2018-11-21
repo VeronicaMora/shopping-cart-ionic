@@ -13,9 +13,7 @@ export class PetitionsProvider {
       authorization: localStorage.getItem("token")
     });
   }
-  /*getNotes(){
-    return this.http.get('http://localhost:5000/notes', { headers: this.getHeaders() })
-  }*/
+  
   signup(username, password){
     return this.http.post('http://localhost:5000/auth/signup', { username, password })
   }
@@ -25,15 +23,19 @@ export class PetitionsProvider {
   removeAccount(){
     return this.http.delete(`http://localhost:5000/auth`, { headers: this.getHeaders() })
   }
-  /*
-  createNote(title, content){
-    return this.http.post('http://localhost:5000/notes', { title, content }, { headers: this.getHeaders() })
+  getProducts(){
+    return this.http.get('http://localhost:5000/products', { headers: this.getHeaders() })
   }
-  updateNote(id_note, title, content){
-    return this.http.patch(`http://localhost:5000/notes/${id_note}`, {title, content}, { headers: this.getHeaders() })
+  createproduct(name, des_product, price, available, image){
+    return this.http.post('http://localhost:5000/products', { name, des_product, price, available, image }, { headers: this.getHeaders() })
   }
-  removeNote(id_note){
-    return this.http.delete(`http://localhost:5000/notes/${id_note}`, { headers: this.getHeaders() })
+  updateProduct(id_product, name, des_product, price, available, image){
+    return this.http.patch(`http://localhost:5000/products/${id_product}`, { name, des_product, price, available, image }, { headers: this.getHeaders() })
   }
-  */
+  removeProduct(id_product){
+    return this.http.delete(`http://localhost:5000/products/${id_product}`, { headers: this.getHeaders() })
+  }
+  getMyProducts(){
+    return this.http.get('http://localhost:5000/profile', { headers: this.getHeaders() })
+  }
 }
