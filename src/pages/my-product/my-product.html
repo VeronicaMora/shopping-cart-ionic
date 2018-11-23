@@ -7,11 +7,21 @@
 
 <ion-content padding>
   <ion-card>
-    <h2>producto 1</h2>
+    <ion-card-header>
+      <ion-item>
+        <ion-input type="text" placeholder="Nombre" [(ngModel)]="name"></ion-input>
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-textarea fz-elastic placeholder="Descripcion del producto" [(ngModel)]="des_product"></ion-textarea>
+      <ion-input type="text" placeholder="Precio" [(ngModel)]="price"></ion-input>
+      <ion-input type="text" placeholder="Disponibilidad" [(ngModel)]="available"></ion-input>
+      <ion-input type="text" placeholder="Imagen" [(ngModel)]="image"></ion-input>
+    </ion-card-content>  
   </ion-card>
 
   <ion-fab right bottom>
-    <button ion-fab mini (click)="deleteProduct()"><ion-icon name="md-trash"></ion-icon></button>
+    <button ion-fab mini (click)="deleteProduct(id_product)"><ion-icon name="md-trash"></ion-icon></button>
   </ion-fab>
 
   <ion-fab left bottom>

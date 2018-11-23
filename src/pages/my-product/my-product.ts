@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { PetitionsProvider } from '../../providers/petitions/petitions'
+import { ProfilePage } from '../profile/profile'
 
 
 @IonicPage()
@@ -9,17 +11,43 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MyProductPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private id_product: number
+  private name: string = ''
+  private des_product: string = ''
+  private price: number
+  private available: number
+  private image: string = ''
+
+  constructor(public navCtrl: NavController, private petitions: PetitionsProvider, private  navParams: NavParams) {
+    const { id_product, name, des_product, price, available, image } = navParams.get('product');
+    this.id_product = id_product
+    this.name = name
+    this.des_product = des_product
+    this.price = price
+    this.available = available
+    this.image = image
+    console.log(id_product)
   }
 
   ionViewDidLoad() {
   }
 
   deleteProduct(){
-    console.log("eliminar")
+    this.petitions.removeProduct(this.id_product).subscribe((data) => {
+      console.log(data)
+      this.navCtrl.setRoot(ProfilePage)
+    }, (error) => {
+      console.log(error)
+    })
   }
 
   updateProduct(){
+    this.petitions.updateProduct(this.id_product, this.name, this.des_product, this.price, this.available, this.image).subscribe((data: any) => {
+      console.log(data)
+      this.navCtrl.setRoot(ProfilePage)
+    }, (error) => {
+      console.log(error)
+    })
     console.log("actualizar")
   }
 }

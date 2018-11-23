@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, App } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { UpdatePage } from '../update/update';
 import { PetitionsProvider } from '../../providers/petitions/petitions'
@@ -16,7 +16,8 @@ export class OptionsPage {
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public alertCtrl: AlertController, 
-    private petitions: PetitionsProvider) {
+    private petitions: PetitionsProvider,
+    public appCtrl: App) {
   }
 
   ionViewDidLoad() {
@@ -43,6 +44,7 @@ export class OptionsPage {
           handler: () => {
             console.log('se cerro sesión')
             localStorage.removeItem('token')
+            this.appCtrl.getRootNav().setRoot(LoginPage)
             this.navCtrl.setRoot(LoginPage);
           }
         }
@@ -59,7 +61,6 @@ export class OptionsPage {
         {
           text: 'No',
           handler: () => {
-            console.log('no pinche loca');
           }
         },
         {

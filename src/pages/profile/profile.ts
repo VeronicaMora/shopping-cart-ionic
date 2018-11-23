@@ -17,7 +17,6 @@ export class ProfilePage {
   }
 
   private products: any = []
-  private input: string = ''
 
   ionViewDidEnter() {
     this.petitions.getMyProducts().subscribe((data) => {
@@ -36,8 +35,8 @@ export class ProfilePage {
     this.navCtrl.push(CreatePage);
   }
 
-  myProduct(){
-    this.navCtrl.push(MyProductPage)
+  myProduct(product){
+    this.navCtrl.push(MyProductPage, { product })
   }
 
 }
