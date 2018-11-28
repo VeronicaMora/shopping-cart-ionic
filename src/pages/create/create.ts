@@ -21,17 +21,17 @@ export class CreatePage {
   private image: string = ""
 
   createProduct(){
-    //if(this.name != '' && this.des_product != '' && this.price != '' && this.available != '' && this.image != ''){
+    if(this.name != '' && this.des_product != '' && this.price != '' && this.available != '' && this.image != ''){
       this.productsProvider.createproduct(this.name, this.des_product, this.price, this.available, this.image).subscribe((data) => {
         console.log(data)
       }, (error) => {
         console.log(error)
       })
       this.navCtrl.setRoot(ProfilePage)
-    /*}
+    }
     else{
-      this.presentToast('Aun no escribes nada');
-    }*/
+      this.presentToast('Aun no escribes');
+    }
   }
 
   presentToast(msg) {
