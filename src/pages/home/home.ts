@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { AlertController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { PetitionsProvider } from '../../providers/petitions/petitions';
 import { LoginPage } from '../login/login';
 import { ProductPage } from '../product/product';
@@ -53,7 +52,7 @@ export class HomePage {
       title: 'Cantidad de productos',
       inputs: [
         {
-          name:'cantidad',
+          name:'Cantidad',
           placeholder:'Cantidad',
           type: 'number'
         },
@@ -80,4 +79,6 @@ export class HomePage {
   goToProduct(){
     this.navCtrl.push(ProductPage)
   }
+
+  
 }
