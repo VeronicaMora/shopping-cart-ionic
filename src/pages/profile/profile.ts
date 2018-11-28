@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { OptionsPage } from '../options/options';
 import { CreatePage } from '../create/create';
 import { MyProductPage } from '../my-product/my-product';
-import { PetitionsProvider } from '../../providers/petitions/petitions'
+import { ProfileProvider } from '../../providers/profile/profile'
 
 
 @IonicPage()
@@ -13,18 +13,35 @@ import { PetitionsProvider } from '../../providers/petitions/petitions'
 })
 export class ProfilePage {
 
-  constructor(private navCtrl: NavController, private petitions: PetitionsProvider) {
+  constructor(private navCtrl: NavController, private profileProvider: ProfileProvider) {
   }
 
   private products: any = []
+  private input: string = ''
+  private profile: any = []
 
   ionViewDidEnter() {
-    this.petitions.getMyProducts().subscribe((data) => {
+    this.profileProvider.getMyProducts().subscribe((data) => {
       console.log(data)
       this.products = data
     }, (error) => {
       console.log(error)
     })
+    /*this.profileProvider.getProfile().subscribe((data) => {
+      console.log(data)
+      this.profile = data
+    }, (error) => {
+      console.log(error)
+    })*/
+  }
+
+  getItems() {
+    if (this.input.trim() != '') {
+      return this.products.filter((item) => {
+        return (item.name.toLowerCase().indexOf(this.input.toLowerCase()) > -1);
+      })
+    }
+    return this.products
   }
 
   goOptions(){
@@ -32,7 +49,7 @@ export class ProfilePage {
   }
 
   createProduct(){
-    this.navCtrl.push(CreatePage);
+    this.navCtrl.setRoot(CreatePage);
   }
 
   myProduct(product){

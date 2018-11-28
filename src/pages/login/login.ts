@@ -33,7 +33,7 @@ export class LoginPage {
   }
 
   register(){
-    this.navCtrl.setRoot(RegisterPage);
+    this.navCtrl.push(RegisterPage);
   }
 
   presentToast(msg) {

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
-import { PetitionsProvider } from '../../providers/petitions/petitions';
+import { ProductsProvider } from '../../providers/products/products';
 
 
 @IonicPage()
@@ -11,7 +11,7 @@ import { PetitionsProvider } from '../../providers/petitions/petitions';
 })
 export class CreatePage {
 
-  constructor(private navCtrl: NavController, private petitions: PetitionsProvider, private toastCtrl: ToastController) {
+  constructor(private navCtrl: NavController, private productsProvider: ProductsProvider, private toastCtrl: ToastController) {
   }
 
   private name: string = ""
@@ -22,7 +22,7 @@ export class CreatePage {
 
   createProduct(){
     //if(this.name != '' && this.des_product != '' && this.price != '' && this.available != '' && this.image != ''){
-      this.petitions.createproduct(this.name, this.des_product, this.price, this.available, this.image).subscribe((data) => {
+      this.productsProvider.createproduct(this.name, this.des_product, this.price, this.available, this.image).subscribe((data) => {
         console.log(data)
       }, (error) => {
         console.log(error)

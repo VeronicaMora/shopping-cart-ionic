@@ -23,9 +23,9 @@ export class OptionsPage {
   ionViewDidLoad() {
   }
 
-  updateProfile(){
+  updateProfile(item){
     console.log('editando la cuenta')
-    this.navCtrl.push(UpdatePage)
+    this.navCtrl.push(UpdatePage, { item })
   }
 
   logout(){

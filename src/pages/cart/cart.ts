@@ -17,9 +17,19 @@ export class CartPage {
     /*private emailComposer: EmailComposer*/) {
   }
 
+  private products: any = []
   private input: string = ''
 
   ionViewDidLoad() {
+  }
+
+  getItems() {
+    if (this.input.trim() != '') {
+      return this.products.filter((item) => {
+        return (item.name.toLowerCase().indexOf(this.input.toLowerCase()) > -1);
+      })
+    }
+    return this.products
   }
 
   sendEmail(){

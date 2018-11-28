@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
+import { ProfileProvider } from '../../providers/profile/profile'
 
 
 @IonicPage()
@@ -10,15 +11,26 @@ import { ProfilePage } from '../profile/profile';
 })
 export class UpdatePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private navCtrl: NavController, private profileProvider: ProfileProvider, private navParams: NavParams) {
+    const { id_profile, image, info, id_user } = navParams.get('item');
+    this.id_profile = id_profile
+    this.image = image
+    this.info = info
+    this.id_user = id_user
   }
 
-  ionViewDidLoad() {
-  }
+  private id_profile: string = ''
+  private image: string = ''
+  private info: string = ''
+  private id_user: string = ''
 
   saveUpdate(){
-    console.log("se guardo")
-    this.navCtrl.setRoot(ProfilePage)
+    this.profileProvider.updateProfile(this.id_profile, this.image, this.info, this.id_user).subscribe((data) => {
+      console.log(data)
+      this.navCtrl.setRoot(ProfilePage)
+    }, (error) => {
+      console.log(error)
+    })
   }
 
 }

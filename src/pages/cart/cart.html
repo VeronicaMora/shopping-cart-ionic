@@ -12,7 +12,22 @@
 
 
   <ion-list>
-
+    <ion-card *ngFor="let item of getItems()" (click)="goToProduct()">
+      <ion-item>
+        <div text-center>
+          <!--<img src="../assets/imgs/luces.png">-->
+        </div>
+        <div text-wrap margin-top>
+          <h2>{{ item.name }}</h2>
+          <h6>{{ item.des_product }}</h6>
+          <h4>${{ item.price }}</h4>
+          <h4> stock: {{ item.available }}</h4>
+        </div>
+        <button ion-button full small icon-only (click)="addToCart()">
+          <ion-icon name="md-cart"></ion-icon>
+        </button>
+      </ion-item>
+    </ion-card>
   </ion-list>
 
 

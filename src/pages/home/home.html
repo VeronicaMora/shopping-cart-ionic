@@ -9,7 +9,7 @@
     <ion-input type="text" placeholder="Buscar..." [(ngModel)]="input"></ion-input>
   </ion-item>
   <ion-list>
-    <ion-card *ngFor="let item of products" (click)="goToProduct()">
+    <ion-card *ngFor="let item of getItems()" (click)="goToProduct()">
       <ion-item>
         <div text-center>
           <!--<img src="../assets/imgs/luces.png">-->

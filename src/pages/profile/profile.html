@@ -6,7 +6,7 @@
 
 
 <ion-content padding>
-  <ion-item>
+  <ion-item >
     <ion-avatar item-start>
       <img src="../assets/imgs/yo.jpg">
     </ion-avatar>
@@ -18,13 +18,15 @@
     </ion-buttons>
   </ion-item>
     
-  <p>info</p>
+  <p placeholder="Escribe algo acerca de ti">
+    Info
+  </p>
 
   <ion-item>
     <ion-input type="text" placeholder="Buscar..." [(ngModel)]="input"></ion-input>
   </ion-item>
 
-  <ion-list *ngFor="let product of products">
+  <ion-list *ngFor="let product of getItems()">
     <ion-card (click)="myProduct(product)">
       <h2>{{ product.name }}</h2>
       <h6>{{ product.des_product }}</h6>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
-import { PetitionsProvider } from '../../providers/petitions/petitions';
+import { ProductsProvider } from '../../providers/products/products';
 import { LoginPage } from '../login/login';
 import { ProductPage } from '../product/product';
 
@@ -12,7 +12,7 @@ import { ProductPage } from '../product/product';
 export class HomePage {
 
   constructor(private navCtrl: NavController,
-    private petitions: PetitionsProvider,
+    private productsProvider: ProductsProvider,
     public alertCtrl: AlertController) {
       
       this.ionViewDidEnter();
@@ -20,10 +20,9 @@ export class HomePage {
 
   private products: any = []
   private input: string = ''
-  //private items: any = []
 
   ionViewDidEnter() {
-    this.petitions.getProducts().subscribe((data: any) => {
+    this.productsProvider.getProducts().subscribe((data: any) => {
       console.log(data)
       this.products = data
     }, (error) => {
@@ -38,13 +37,12 @@ export class HomePage {
   }
 
   getItems() {
-    /*if (this.input.trim() != '') {
+    if (this.input.trim() != '') {
       return this.products.filter((item) => {
-        return (item.title.toLowerCase().indexOf(this.input.toLowerCase()) > -1);
+        return (item.name.toLowerCase().indexOf(this.input.toLowerCase()) > -1);
       })
     }
     return this.products
-    */
   }
 
   addToCart(){

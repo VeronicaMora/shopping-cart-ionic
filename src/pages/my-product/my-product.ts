@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { PetitionsProvider } from '../../providers/petitions/petitions'
+import { ProductsProvider } from '../../providers/products/products'
 import { ProfilePage } from '../profile/profile'
 
 
@@ -18,7 +18,7 @@ export class MyProductPage {
   private available: number
   private image: string = ''
 
-  constructor(public navCtrl: NavController, private petitions: PetitionsProvider, private  navParams: NavParams) {
+  constructor(public navCtrl: NavController, private productsProvider: ProductsProvider, private  navParams: NavParams) {
     const { id_product, name, des_product, price, available, image } = navParams.get('product');
     this.id_product = id_product
     this.name = name
@@ -29,11 +29,8 @@ export class MyProductPage {
     console.log(id_product)
   }
 
-  ionViewDidLoad() {
-  }
-
   deleteProduct(){
-    this.petitions.removeProduct(this.id_product).subscribe((data) => {
+    this.productsProvider.removeProduct(this.id_product).subscribe((data) => {
       console.log(data)
       this.navCtrl.setRoot(ProfilePage)
     }, (error) => {
@@ -42,7 +39,7 @@ export class MyProductPage {
   }
 
   updateProduct(){
-    this.petitions.updateProduct(this.id_product, this.name, this.des_product, this.price, this.available, this.image).subscribe((data: any) => {
+    this.productsProvider.updateProduct(this.id_product, this.name, this.des_product, this.price, this.available, this.image).subscribe((data: any) => {
       console.log(data)
       this.navCtrl.setRoot(ProfilePage)
     }, (error) => {

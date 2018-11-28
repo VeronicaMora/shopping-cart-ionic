@@ -21,6 +21,9 @@ import { SearchPage } from '../pages/search/search';
 import { UserPage } from '../pages/user/user';
 import { UserProductPage } from '../pages/user-product/user-product';
 import { PetitionsProvider } from '../providers/petitions/petitions';
+import { ProductsProvider } from '../providers/products/products';
+import { ProfileProvider } from '../providers/profile/profile';
+import { CartProvider } from '../providers/cart/cart';
 
 @NgModule({
   declarations: [
@@ -67,7 +70,10 @@ import { PetitionsProvider } from '../providers/petitions/petitions';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    PetitionsProvider
+    PetitionsProvider,
+    ProductsProvider,
+    ProfileProvider,
+    CartProvider
   ]
 })
 export class AppModule {}
