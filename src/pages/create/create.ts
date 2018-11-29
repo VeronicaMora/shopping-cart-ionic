@@ -22,7 +22,7 @@ export class CreatePage {
 
   createProduct(){
     if(this.name != '' && this.des_product != '' && this.price != '' && this.available != '' && this.image != ''){
-      this.productsProvider.createproduct(this.name, this.des_product, this.price, this.available, this.image).subscribe((data) => {
+      this.productsProvider.createProduct(this.name, this.des_product, this.price, this.available, this.image).subscribe((data) => {
         console.log(data)
       }, (error) => {
         console.log(error)

@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
-<<<<<<< HEAD
 import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { ProductsProvider } from '../../providers/products/products';
-=======
-import { NavController, AlertController } from 'ionic-angular';
-import { PetitionsProvider } from '../../providers/petitions/petitions';
->>>>>>> 7304799ce957ec2cd40b44f57126db088938c7ff
+import { CommentsProvider } from '../../providers//comments/comments';
 import { LoginPage } from '../login/login';
 import { ProductPage } from '../product/product';
 
@@ -18,6 +14,7 @@ export class HomePage {
 
   constructor(private navCtrl: NavController,
     private productsProvider: ProductsProvider,
+    private commentsProvider: CommentsProvider,
     public alertCtrl: AlertController) {
       
       this.ionViewDidEnter();
@@ -25,6 +22,10 @@ export class HomePage {
 
   private products: any = []
   private input: string = ''
+  private comment_text: string = ''
+  private created_at: string = ''
+  private id_product: number
+  private id_user: number
 
   ionViewDidEnter() {
     this.productsProvider.getProducts().subscribe((data: any) => {
@@ -48,6 +49,22 @@ export class HomePage {
       })
     }
     return this.products
+  }
+
+  getComments(){
+    this.commentsProvider.getComments().subscribe((data) => {
+      console.log(data)
+    }, (error) => {
+      console.log(error)
+    })
+  }
+
+  createComment(){
+    this.commentsProvider.createComment(this.comment_text, this.created_at, this.id_product, this.id_user).subscribe((data) => {
+      console.log(data)
+    }, (error) => {
+      console.log(error)
+    })
   }
 
   addToCart(){

@@ -16,7 +16,7 @@ export class ProductsProvider {
   getProducts(){
     return this.http.get('http://192.168.43.218:5000/products', { headers: this.getHeaders() })
   }
-  createproduct(name, des_product, price, available, image){
+  createProduct(name, des_product, price, available, image){
     return this.http.post('http://192.168.43.218:5000/products', { name, des_product, price, available, image }, { headers: this.getHeaders() })
   }
   updateProduct(id_product, name, des_product, price, available, image){

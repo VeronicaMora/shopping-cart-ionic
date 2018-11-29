@@ -24,6 +24,12 @@
           <ion-icon name="md-cart"></ion-icon>
         </button>
       </ion-item>
+      <ion-list *ngFor="let i of getComments">
+        <ion-item-divider>
+          <ion-item>bbj</ion-item>
+        </ion-item-divider>
+      </ion-list>
+      <ion-input type="text" placeholder="Comenta algo" [(ngModel)]=""></ion-input>
     </ion-card>
   </ion-list>
 </ion-content>
