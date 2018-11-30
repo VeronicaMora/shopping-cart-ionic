@@ -16,12 +16,12 @@ export class ProfileProvider {
   }
 
   updateProfile(id_profile, image, info, id_user){
-    return this.http.patch(`http://192.168.43.218:5000/profile/${id_profile}`, {  image, info, id_user }, { headers: this.getHeaders() })
+    return this.http.patch(`http://localhost:5000/profile/${id_profile}`, {  image, info, id_user }, { headers: this.getHeaders() })
   }
   getMyProducts(){
-    return this.http.get('http://192.168.43.218:5000/ownProducts', { headers: this.getHeaders() })
+    return this.http.get('http://localhost:5000/ownProducts', { headers: this.getHeaders() })
   }
   getProfile(){
-    return this.http.get('http://192.168.43.218:5000/profile', { headers: this.getHeaders() })
+    return this.http.get('http://localhost:5000/profile', { headers: this.getHeaders() })
   }
 }

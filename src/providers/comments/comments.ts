@@ -21,10 +21,10 @@ export class CommentsProvider {
   }
 
   getComments(){
-    return this.http.get('http://192.168.43.218:5000/comments', { headers: this.getHeaders() })
+    return this.http.get('http://localhost:5000/comments', { headers: this.getHeaders() })
   }
   createComment(comment_text, created_at, id_product, id_user){
-    return this.http.post('http://192.168.43.218:5000/comments', { comment_text, created_at, id_product, id_user }, { headers: this.getHeaders() })
+    return this.http.post('http://localhost:5000/comments', { comment_text, created_at, id_product, id_user }, { headers: this.getHeaders() })
   }
 
 }

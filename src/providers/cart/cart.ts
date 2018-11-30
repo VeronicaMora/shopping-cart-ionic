@@ -1,17 +1,25 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-/*
-  Generated class for the CartProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class CartProvider {
 
   constructor(public http: HttpClient) {
-    console.log('Hello CartProvider Provider');
   }
 
+  getHeaders() {
+    return new HttpHeaders({
+      authorization: localStorage.getItem("token")
+    });
+  }
+
+  getCartProducts(){
+    return this.http.get('http://localhost:5000/cart', { headers: this.getHeaders() })
+  }
+  addCartProduct(name, des_product, price, available, image){
+    return this.http.post('http://localhost:5000/cart', { name, des_product, price, available, image }, { headers: this.getHeaders() })
+  }
+  removeCartProduct(id_product){
+    return this.http.delete(`http://localhost:5000/cart/${id_product}`, { headers: this.getHeaders() })
+  }
 }

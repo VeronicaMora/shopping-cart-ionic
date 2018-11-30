@@ -15,12 +15,12 @@ export class PetitionsProvider {
   }
   
   signup(username, password){
-    return this.http.post('http://192.168.43.218:5000/auth/signup', { username, password })
+    return this.http.post('http://localhost:5000/auth/signup', { username, password })
   }
   login(username, password){
-    return this.http.post('http://192.168.43.218:5000/auth/login', { username, password })
+    return this.http.post('http://localhost:5000/auth/login', { username, password })
   }
   removeAccount(){
-    return this.http.delete(`http://192.168.43.218:5000/auth`, { headers: this.getHeaders() })
+    return this.http.delete(`http://localhost:5000/auth`, { headers: this.getHeaders() })
   }
 }

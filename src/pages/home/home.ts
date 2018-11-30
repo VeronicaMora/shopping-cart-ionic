@@ -52,19 +52,19 @@ export class HomePage {
   }
 
   getComments(){
-    this.commentsProvider.getComments().subscribe((data) => {
+    +/*this.commentsProvider.getComments().subscribe((data) => {
       console.log(data)
     }, (error) => {
       console.log(error)
-    })
+    })*/
   }
 
   createComment(){
-    this.commentsProvider.createComment(this.comment_text, this.created_at, this.id_product, this.id_user).subscribe((data) => {
+    /*this.commentsProvider.createComment(this.comment_text, this.created_at, this.id_product, this.id_user).subscribe((data) => {
       console.log(data)
     }, (error) => {
       console.log(error)
-    })
+    })*/
   }
 
   addToCart(){
