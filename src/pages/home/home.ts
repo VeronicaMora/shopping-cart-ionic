@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { ProductsProvider } from '../../providers/products/products';
-import { CommentsProvider } from '../../providers//comments/comments';
+import { CommentsProvider } from '../../providers/comments/comments';
+import { CartProvider } from '../../providers/cart/cart';
 import { LoginPage } from '../login/login';
 import { ProductPage } from '../product/product';
 
@@ -15,6 +16,7 @@ export class HomePage {
   constructor(private navCtrl: NavController,
     private productsProvider: ProductsProvider,
     private commentsProvider: CommentsProvider,
+    private cartProvider: CartProvider,
     public alertCtrl: AlertController) {
       
       this.ionViewDidEnter();
@@ -26,6 +28,7 @@ export class HomePage {
   private created_at: string = ''
   private id_product: number
   private id_user: number
+  private cart: any = []
 
   ionViewDidEnter() {
     this.productsProvider.getProducts().subscribe((data: any) => {
@@ -52,7 +55,7 @@ export class HomePage {
   }
 
   getComments(){
-    +/*this.commentsProvider.getComments().subscribe((data) => {
+    /*this.commentsProvider.getComments().subscribe((data) => {
       console.log(data)
     }, (error) => {
       console.log(error)
@@ -68,7 +71,7 @@ export class HomePage {
   }
 
   addToCart(){
-    console.log("se añadio al carrito")
+    /*console.log("se añadio al carrito")
     const prompt = this.alertCtrl.create({
       title: 'Cantidad de productos',
       inputs: [
@@ -85,16 +88,18 @@ export class HomePage {
         {
           text: 'Aceptar',
           handler: data => {
-            const cantidad = Number(data.cantidad)
-            if(cantidad && cantidad > 0){
-                //this.carrito.setItem({...item, cantidad: data.cantidad});
-                console.log("cantidad")
-            }
+            const cantidad = Number(data.cantidad)*/
+                this.cartProvider.addCartProduct(this.id_product).subscribe((data) => {
+                  console.log(data)
+                  this.cart = data
+                }, (error) => {
+                  console.log(error)
+                })
+            /*}
           }
-        }
       ]
     });
-    prompt.present();
+    prompt.present();*/
   }
 
   goToProduct(){

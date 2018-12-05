@@ -49,7 +49,7 @@ export class ProfilePage {
   }
 
   createProduct(){
-    this.navCtrl.setRoot(CreatePage);
+    this.navCtrl.push(CreatePage);
   }
 
   myProduct(product){

@@ -45,7 +45,6 @@ export class OptionsPage {
             console.log('se cerro sesión')
             localStorage.removeItem('token')
             this.appCtrl.getRootNav().setRoot(LoginPage)
-            this.navCtrl.setRoot(LoginPage);
           }
         }
       ]
@@ -69,7 +68,8 @@ export class OptionsPage {
             console.log('se elimino la cuenta')
             this.petitions.removeAccount().subscribe((data) => {
               console.log(data)
-              this.navCtrl.setRoot(LoginPage);
+              localStorage.removeItem('token')
+              this.appCtrl.getRootNav().setRoot(LoginPage)
             }, (error) => {
               console.log(error)
             })
