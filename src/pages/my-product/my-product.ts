@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProductsProvider } from '../../providers/products/products'
 import { ProfilePage } from '../profile/profile'
+//import { CameraProvider } from './../../providers/camera/camera';
 
 
 @IonicPage()
@@ -18,15 +19,16 @@ export class MyProductPage {
   private available: number
   private image: string = ''
 
-  constructor(public navCtrl: NavController, private productsProvider: ProductsProvider, private  navParams: NavParams) {
-    const { id_product, name, des_product, price, available, image } = navParams.get('product');
-    this.id_product = id_product
-    this.name = name
-    this.des_product = des_product
-    this.price = price
-    this.available = available
-    this.image = image
-    console.log(id_product)
+  constructor(public navCtrl: NavController, private productsProvider: ProductsProvider, 
+    private  navParams: NavParams, /*public cameraProvider: CameraProvider*/) {
+      const { id_product, name, des_product, price, available, image } = navParams.get('product');
+      this.id_product = id_product
+      this.name = name
+      this.des_product = des_product
+      this.price = price
+      this.available = available
+      this.image = image
+      console.log(id_product)
   }
 
   deleteProduct(){
@@ -47,4 +49,13 @@ export class MyProductPage {
     })
     console.log("actualizar")
   }
+
+  /*
+  chooseImg(){
+    this.cameraProvider.choose().then((res:any)=>{
+      this.user.photo = res;
+    }).catch((error) =>{
+      console.log(error);
+    })
+  }*/
 }
