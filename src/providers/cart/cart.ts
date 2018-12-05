@@ -16,7 +16,7 @@ export class CartProvider {
   getCartProducts(){
     return this.http.get('http://localhost:5000/cart', { headers: this.getHeaders() })
   }
-  addCartProduct(id_product){
+  addCartProduct(id_product: number){
     return this.http.post(`http://localhost:5000/cart`, {id_product}, { headers: this.getHeaders() })
   }
   removeCartProduct(id_product){

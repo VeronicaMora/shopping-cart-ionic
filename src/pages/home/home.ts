@@ -29,11 +29,19 @@ export class HomePage {
   private id_product: number
   private id_user: number
   private cart: any = []
+  private comments: any = []
 
   ionViewDidEnter() {
     this.productsProvider.getProducts().subscribe((data: any) => {
       console.log(data)
       this.products = data
+    }, (error) => {
+      console.log(error)
+    })
+
+    this.commentsProvider.getComments().subscribe((data: any) => {
+      console.log(data)
+      this.comments = data
     }, (error) => {
       console.log(error)
     })
@@ -55,19 +63,15 @@ export class HomePage {
   }
 
   getComments(){
-    /*this.commentsProvider.getComments().subscribe((data) => {
-      console.log(data)
-    }, (error) => {
-      console.log(error)
-    })*/
+    return this.comments
   }
 
   createComment(){
-    /*this.commentsProvider.createComment(this.comment_text, this.created_at, this.id_product, this.id_user).subscribe((data) => {
+    this.commentsProvider.createComment(this.comment_text, this.created_at, this.id_product, this.id_user).subscribe((data) => {
       console.log(data)
     }, (error) => {
       console.log(error)
-    })*/
+    })
   }
 
   addToCart(){
@@ -89,7 +93,7 @@ export class HomePage {
           text: 'Aceptar',
           handler: data => {
             const cantidad = Number(data.cantidad)*/
-                this.cartProvider.addCartProduct(this.id_product).subscribe((data) => {
+                this.cartProvider.addCartProduct(this.id_product).subscribe((data: number) => {
                   console.log(data)
                   this.cart = data
                 }, (error) => {

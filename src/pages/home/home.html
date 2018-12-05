@@ -24,12 +24,24 @@
           <ion-icon name="md-cart"></ion-icon>
         </button>
       </ion-item>
+      
       <ion-list>
         <ion-item-divider>
-          <ion-item>bbj</ion-item>
+          <ion-item *ngFor="let item of getComments()">
+            <div *ngIf="">
+              <h2>{{ item.comment_text }}</h2>
+            </div>
+          </ion-item>
         </ion-item-divider>
       </ion-list>
-      <ion-input type="text" placeholder="Comenta algo" ></ion-input>
+      
+      
+        <ion-input type="text" placeholder="Comenta algo..."></ion-input>
+        <ion-buttons end>
+              <ion-icon name="md-send"></ion-icon>
+          </ion-buttons>
+        
+      
     </ion-card>
   </ion-list>
 </ion-content>
